@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+Faces/
+Original Images/
+
+archive.zip
+
 # Distribution / packaging
 .Python
 build/
