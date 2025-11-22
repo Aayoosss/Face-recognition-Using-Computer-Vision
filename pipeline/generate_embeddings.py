@@ -11,7 +11,7 @@ def embedder_pipeline():
     try:
         logger.info("STARTED THE PIPELINE...")
         # Preprocessor = DataPreprocessor()
-        logger.info("PREPROCESSOR INSTANTIATED SUCCESFULLY...STARTED PREPROCESSING....")
+        logger.info("PREPROCESSOR INSTANTIATED SUCCESSFULLY...STARTED PREPROCESSING....")
         # Preprocessor.preprocessor()
         logger.info("PREPROCESSING COMPLLETED...STARTING EMBEDDING GENERATION....")
         Emb1 = Embedder(model_name = MODEL_NAME)

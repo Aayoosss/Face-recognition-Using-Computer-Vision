@@ -12,14 +12,23 @@ MODEL_NAME = "Facenet512"
 PREPROCESSED_DATA_PATH = "Faces/my_faces"
 EMBEDDINGS_PATH = "Embeddings/Embeddings.npz"
 EMBEDDINGS_CSV_PATH = os.path.join(EMBEDDINGS_PATH, "embeddings_index.csv")
-FACE_EMBEDDINGS_SCRIPT_NAME = "face_embeddings_generater.py"
-FACE_EMBEDDINGS_LOGFILE_NAME = "face_embeddings_generater.log"
+FACE_EMBEDDINGS_SCRIPT_NAME = "face_embeddings_component.py"
+FACE_EMBEDDINGS_LOGFILE_NAME = "face_embeddings_component.log"
 
-#Paths and constants for pipeline - face_recogniser.py component
+#Paths and constants for pipeline - face_recognizer.py component
+MODEL_NAME = "Facenet512" 
 EMBEDDINGS_PATH = "Embeddings/Embeddings.npz"
+FACE_RECOGNIZER_SCRIPT_NAME = "face_recognizer_component.py"
+FACE_RECOGNIZER_LOGFILE_NAME = "face_recognizer_component.log"
 
 
 
-#Paths and constants for pipeline - Embeddings_generator.py pipeline
-EMBEDDINGS_GENERATOR_SCRIPT_NAME = "Embeddings_generator.py"
-EMBEDDINGS_GENERATOR_LOGFILE_NAME = "Embeddings_generator.log"
+#Paths and constants for pipeline - generate_embeddings.py pipeline
+EMBEDDINGS_GENERATOR_SCRIPT_NAME = "Embeddings_generator_pipeline.py"
+EMBEDDINGS_GENERATOR_LOGFILE_NAME = "Embeddings_generator_pipeline.log"
+
+#Paths and constants for pipeline - recognise.py pipeline
+SAMPLE_TEXT_IMAGE_NAME = "sampletestimage3.jpg"
+SAMPLE_TEXT_IMAGE_PATH = os.path.join("Faces/test_images",SAMPLE_TEXT_IMAGE_NAME)
+RECOGNISE_PIPELINE_SCRIPT_NAME = "recognise_pipeline.py"
+RECOGNISE_PIPELINE_LOGFILE_NAME = "recognise_pipeline.log"
