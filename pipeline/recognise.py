@@ -13,8 +13,6 @@ def recognise(img_path: str):
         names, embeddings = recogniser.get_names_embeddings()
         max_similarity = -9999999999
         person = None
-        # print(f"Total names = {names.shape}")
-        # print(f"Total embeddings = {embeddings.shape}")
         for name, embedding in zip(names,embeddings):
             similar = cosine_similarity(new_embedding.reshape(1, -1), embedding.reshape(1, -1))[0][0]
 
@@ -22,19 +20,21 @@ def recognise(img_path: str):
                 max_similarity = similar
                 person = name
           
-        if person and max_similarity > 0.45:
+        if person and max_similarity > 0.10:
             Logger.info("Person found successfully")
             print(f"Person identified: {person}")
             print(f"Similarity calculated: {max_similarity}")
+            return person, max_similarity
             
         else:
-            print("Could not recognise the person in the image. Check whether the person is registered on not. If not please register first.")
+            Logger.info("Could not recognise the person in the image. Check whether the person is registered on not. If not please register first.")
+            return("Unknown",max_similarity)
     
     except Exception as e:
         Logger.error("Unexpected error occurred while recognising the person: %s", e)
         raise e
     
 if __name__ == "__main__":
-    recognise(SAMPLE_TEXT_IMAGE_PATH)
+    person, max_similarity = recognise(SAMPLE_TEXT_IMAGE_PATH)
             
         
