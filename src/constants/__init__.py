@@ -28,7 +28,7 @@ EMBEDDINGS_GENERATOR_SCRIPT_NAME = "Embeddings_generator_pipeline.py"
 EMBEDDINGS_GENERATOR_LOGFILE_NAME = "Embeddings_generator_pipeline.log"
 
 #Paths and constants for pipeline - recognise.py pipeline
-SAMPLE_TEXT_IMAGE_NAME = "sampletestimage3.jpg"
+SAMPLE_TEXT_IMAGE_NAME = "Akshay Kumar_1.jpeg"
 SAMPLE_TEXT_IMAGE_PATH = os.path.join("Faces/test_images",SAMPLE_TEXT_IMAGE_NAME)
 RECOGNISE_PIPELINE_SCRIPT_NAME = "recognise_pipeline.py"
 RECOGNISE_PIPELINE_LOGFILE_NAME = "recognise_pipeline.log"

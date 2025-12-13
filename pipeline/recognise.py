@@ -2,13 +2,18 @@ from src.components import Recognizer
 from src.constants import RECOGNISE_PIPELINE_LOGFILE_NAME, RECOGNISE_PIPELINE_SCRIPT_NAME, SAMPLE_TEXT_IMAGE_PATH
 from src.logger import get_logger
 from sklearn.metrics.pairwise import cosine_similarity
+import cv2
+import numpy as np
 
 Logger = get_logger(RECOGNISE_PIPELINE_SCRIPT_NAME, RECOGNISE_PIPELINE_LOGFILE_NAME)
 
-def recognise(img_path: str):
+def recognise(img_path: str = None, img_array: np.ndarray = None):
     try:
         recogniser = Recognizer()
-        img, new_embedding = recogniser.load_image(img_path)
+        if img_path is not None:
+            img, new_embedding = recogniser.load_image(image_path = img_path)
+        elif img_array is not None:
+            img, new_embedding = recogniser.load_image(img = img_array)
         Logger.info("Image loaded successfully")
         names, embeddings = recogniser.get_names_embeddings()
         max_similarity = -9999999999
@@ -35,6 +40,8 @@ def recognise(img_path: str):
         raise e
     
 if __name__ == "__main__":
-    person, max_similarity = recognise(SAMPLE_TEXT_IMAGE_PATH)
+    img = cv2.imread(SAMPLE_TEXT_IMAGE_PATH)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    person, max_similarity = recognise(img_path = SAMPLE_TEXT_IMAGE_PATH)
             
         

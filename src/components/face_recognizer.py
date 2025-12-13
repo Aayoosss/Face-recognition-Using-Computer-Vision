@@ -33,10 +33,13 @@ class Recognizer:
             logger.error("Unexpected error occurred while loading the embeddings.npz file: %s", e)
             raise     
     
-    def load_image(self, image_path: str):
+    def load_image(self, image_path: str = None, img: np.ndarray = None):
         try:
-            img = cv2.imread(image_path)
-            img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            if image_path is not None:
+                img = cv2.imread(image_path)
+                img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            else:
+                img_rgb = img
             detector = MTCNN()
             try:
                 detections = detector.detect_faces(img_rgb)
@@ -79,9 +82,7 @@ class Recognizer:
         except Exception as e:
             logger.error("Unexpected error occurred while generating embeddings: %e", e)
             raise
-            
-            
-    
+           
     def get_names_embeddings(self):
         try:
             data = self.load_embeddings_file()

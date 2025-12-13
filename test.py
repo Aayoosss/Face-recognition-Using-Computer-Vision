@@ -1,5 +1,4 @@
 import os
-import cv2
 from pipeline.recognise import recognise
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
@@ -15,7 +14,7 @@ y_sim = []
 for image in testimages:
     image_path = os.path.join(test_path, image)
     print(f"Recognising image: {image_path}")
-    person, max_similarity = recognise(image_path)
+    person, max_similarity = recognise(img_path = image_path)
     y_pred.append(person)
     y_sim.append(max_similarity)
     print("-------------------------------------------------------------------------------")
